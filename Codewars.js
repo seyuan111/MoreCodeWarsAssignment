@@ -130,3 +130,18 @@ function countPositivesSumNegatives(input) {
     }
   return [positiveNums, negativeNums]
 }
+
+//To square(root) or not to square(root)
+
+//Write a method, that will get an integer array as parameter and will
+//process every number from this array.
+
+//Return a new array with processing every number of the input-array
+//like this:
+
+//If the number has an integer square root, take this, otherwise
+//square the number.
+
+function squareOrSquareRoot(array) {
+    return array.map((item) => Math.sqrt(item) == Math.sqrt(item).toFixed(0) ? Math.sqrt(item) : item * item)
+ }
