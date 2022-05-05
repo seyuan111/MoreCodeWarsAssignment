@@ -1,11 +1,16 @@
 //If you can't sleep, just count sheep
 
-var countSheep = function(num){
-    let str = ""
+//Given a non-negative integer, 3 for example, return a string with a
+//murmur: "1 sheep...2 sheep...3 sheep...". Input will always be valid,
+//i.e. no negative integers.
 
-    for(let i = 1; i <=num; i++){
-        return str
-    }
+var countSheep = function(num){
+  let str = ""
+
+  for(let i = 1; i <=num; i++){
+      str += i.toString() + ' sheep...';
+  }
+return str
 }
 
 //Merge two sorted arrays into one
@@ -144,4 +149,54 @@ function countPositivesSumNegatives(input) {
 
 function squareOrSquareRoot(array) {
     return array.map((item) => Math.sqrt(item) == Math.sqrt(item).toFixed(0) ? Math.sqrt(item) : item * item)
- }
+}
+
+//Simple, remove the spaces from the string, then return the resultant string.
+
+function noSpace(x){
+  return x.split(" ").join("")
+}
+
+//String cleaning
+
+//Your boss decided to save money by purchasing some cut-rate optical
+//character recognition software for scanning in the text of old novels
+//to your database. At first it seems to capture words okay, but you
+//quickly notice that it throws in a lot of numbers at random places in
+//the text.
+
+//Examples (input -> output)
+//'! !'                 -> '! !'
+//'123456789'           -> ''
+//'This looks5 grea8t!' -> 'This looks great!'
+
+//Your harried co-workers are looking to you for a solution to take this
+//garbled text and remove all of the numbers. Your program will take in a
+//string and clean out all numeric characters, and return a string with
+//spacing and special characters ~#$%^&!@*():;"'.,? all intact.
+
+function stringClean(s){
+  return s.replace(/[0-9]/g,"")
+}
+
+//Write a function that returns a string in which firstname is swapped
+//with last name.
+
+//nameShuffler('john McClane'); => "McClane john"
+
+function nameShuffler(str){
+  return str.split(' ').reverse().join(' ')
+}
+
+//We need a simple function that determines if a plural is needed or not.
+//It should take a number, and return true if a plural should be used with
+//that number or false if not. This would be useful when printing out a
+//string such as 5 minutes, 14 apples, or 1 sun.
+
+function plural(n) {
+  if(n > 1 || n !==1){
+    return true;
+  }else{
+    return false;
+  }
+}
