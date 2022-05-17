@@ -151,7 +151,8 @@ function squareOrSquareRoot(array) {
     return array.map((item) => Math.sqrt(item) == Math.sqrt(item).toFixed(0) ? Math.sqrt(item) : item * item)
 }
 
-//Simple, remove the spaces from the string, then return the resultant string.
+//Simple, remove the spaces from the string, then return the resultant
+//string.
 
 function noSpace(x){
   return x.split(" ").join("")
@@ -236,4 +237,57 @@ function betterThanAverage(classPoints, yourPoints) {
   }else{
     return false
   }
+}
+
+//Lario and Muigi Pipe Problem
+
+//Issue
+
+//Looks like some hoodlum plumber and his brother has been running
+//around and damaging your stages again.
+
+//The pipes connecting your level's stages together need to be fixed
+//before you receive any more complaints.
+
+//Pipes list is correct when each pipe after the first index is
+//greater (+1) than the previous one, and that there is no duplicates.
+
+//Task
+
+//Given the a list of numbers, return a fixed list so that the values
+//increment by 1 for each index from the minimum value up to the maximum
+//value (both included).
+
+function pipeFix(numbers){
+  
+  let arr = []
+  
+  for(let i = numbers[0]; i <= numbers[numbers.length -1]; i++){
+    arr.push(i)
+  }
+  return arr
+}
+
+//Find all pairs
+
+//You are given array of integers, your task will be to count all pairs
+//in that array and return their count.
+
+//example
+
+//[1, 2, 5, 6, 5, 2]  -->  2
+//...because there are 2 pairs: 2 and 5
+
+function duplicates(array){
+  array = array.slice().sort()
+  let count = 0;
+  
+  for(let i = 0; i < array.length; i++){
+    if(array[i] === array[i+1]){
+      count++
+      array[i] = ''
+      array[i+1] = ''
+    }
+  }
+  return count
 }
