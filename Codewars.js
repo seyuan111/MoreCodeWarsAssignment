@@ -333,3 +333,17 @@ function digitize(n) {
   
   return str.split('').map(Number).reverse()
 }
+
+//Determine offspring sex based on genes XX and XY chromosomes
+
+//If the sperm contains the X chromosome, return "Congratulations! You're
+//going to have a daughter."; If the sperm contains the Y chromosome,
+//return "Congratulations! You're going to have a son.";
+
+function chromosomeCheck(sperm) {
+  if(sperm === "XX"){
+    return "Congratulations! You're going to have a daughter."
+  }else if(sperm === "XY"){
+    return "Congratulations! You're going to have a son."
+  }
+}
