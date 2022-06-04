@@ -347,3 +347,34 @@ function chromosomeCheck(sperm) {
     return "Congratulations! You're going to have a son."
   }
 }
+
+//Convert a string to an array
+
+//Write a function to split a string and convert it into an array of words.
+//"Robin Singh" ==> ["Robin", "Singh"]
+
+function stringToArray(string){
+
+	return string.split(' ')
+
+}
+
+//Ghostbusters (whitespace removal)
+
+//Oh no! Ghosts have reportedly swarmed the city. It's your job to get rid
+//of them and save the day!
+//In this kata, strings represent buildings while whitespaces within those
+//strings represent ghosts.
+
+//So what are you waiting for? Return the building(string) without any
+//ghosts(whitespaces)!
+
+//Example: ghostBusters("Sky scra per");
+
+function ghostBusters(building) {
+  if (building.match(/ /)){
+    return building.replace(/ /g, "")
+  }else{
+    return "You just wanted my autograph didn't you?"
+  }
+}
