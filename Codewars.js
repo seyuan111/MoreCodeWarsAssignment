@@ -434,3 +434,26 @@ function expressionMatter(a, b, c) {
 function stairsIn20(s){
   return s.reduce((steps,day) => steps.concat(day)).reduce((sum,count) => sum + count) * 20
 }
+
+//Is the string uppercase?
+
+//Create a method to see whether the string is ALL CAPS.
+
+String.prototype.isUpperCase = function() {
+  return this.toString() === this.toUpperCase()
+}
+
+//FIXME: Replace all dots
+
+//The code provided is supposed replace all the dots . in the specified
+//String str with dashes -
+
+//But it's not working properly.
+
+//Task
+
+//Fix the bug so we can all go home early.
+
+var replaceDots = function(str) {
+  return str.replace(/\./g, '-');
+}
