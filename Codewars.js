@@ -457,3 +457,58 @@ String.prototype.isUpperCase = function() {
 var replaceDots = function(str) {
   return str.replace(/\./g, '-');
 }
+
+//String repeat
+
+//Write a function that accepts an integer n and a string s as parameters,
+//and returns a string of s repeated exactly n times.
+
+//Examples (input -> output)
+//6, "I"     -> "IIIIII"
+//5, "Hello" -> "HelloHelloHelloHelloHello"
+
+function repeatStr (n, s) {
+  let str = "";
+  
+  for(let i = 0; i < n; i++){
+    str += s
+  }
+  return str
+}
+
+//or
+
+return s.repeat(n)
+
+//Ce*s*r*d Strings
+
+//My PC got infected by a strange virus. It only infects my text files and
+//replaces random letters by *, li*e th*s (like this).
+
+//Fortunately, I discovered that the virus hides my censored letters
+//inside root directory.
+
+//It will be very tedious to recover all these files manually, so your
+//goal is to implement uncensor function that does the hard work
+//automatically.
+
+//Examples
+//uncensor("*h*s *s v*ry *tr*ng*", "Tiiesae") ➜ "This is very strange"
+
+//uncensor("A**Z*N*", "MAIG") ➜ "AMAZING"
+
+//uncensor("xyz", "") ➜ "xyz"
+
+function uncensor(infected, discovered) {
+  let result = "", discoveredIndex = 0;
+  
+  for(let infectedIndex = 0; infectedIndex < infected.length; infectedIndex++){
+    if(infected[infectedIndex] === "*"){
+      result += discovered[discoveredIndex]
+      discoveredIndex++
+    }else{
+      result += infected[infectedIndex]
+    }
+  }
+  return result;
+}
