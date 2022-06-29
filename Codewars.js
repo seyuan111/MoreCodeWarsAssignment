@@ -512,3 +512,68 @@ function uncensor(infected, discovered) {
   }
   return result;
 }
+
+//Find Maximum and Minimum Values of a List
+
+//Your task is to make two functions ( max and min, or maximum and
+//minimum, etc., depending on the language ) that receive a list of
+//integers as input, and return the largest and lowest number in that
+//list, respectively.
+
+//* [4,6,2,1,9,63,-134,566]         -> max = 566, min = -134
+//* [-52, 56, 30, 29, -54, 0, -110] -> min = -110, max = 56
+//* [42, 54, 65, 87, 0]             -> min = 0, max = 87
+//* [5]                             -> min = 5, max = 5
+
+var min = function(list){
+    
+  return Math.min(...list);
+}
+
+var max = function(list){
+  
+  return Math.max(...list);
+}
+
+//Object Oriented Piracy
+
+//You are a leader of a small pirate crew. And you have a plan. With the
+//help of OOP you wish to make a pretty efficient system to identify ships
+//with a heavy booty on board.
+
+//Unfortunattely for you, people weigh a lot this days, so how do you know
+//if a ship if full of gold and not people?
+
+//You begin with writing a generic Ship class / struct:
+
+//function Ship(draft,crew) {
+// this.draft = draft;
+// this.crew = crew;
+//}
+
+//Every time your spies see a new ship enter the dock, they will create a
+//new ship object based on their observations:
+
+//draft - an estimate of the ship's weight based on how low it is in the
+//water
+//crew - the count of crew on board
+//var titanic = new Ship(15, 10);
+//Taking into account that an average crew member on board adds 1.5 units
+//to the draft, a ship that has a draft of more than 20 without crew is
+//considered worthy to loot. Any ship weighing that much must have a lot
+//of booty!
+
+//Add the method
+
+//isWorthIt
+//to decide if the ship is worthy to loot. For example:
+
+//titanic.isWorthIt() // return false
+
+function Ship(draft,crew) {
+  this.draft = draft;
+  this.crew = crew;
+  this.isWorthIt = function(){
+    return this.draft - this.crew * 1.5 > 20
+  }
+ }
