@@ -513,6 +513,11 @@ function uncensor(infected, discovered) {
   return result;
 }
 
+//or
+
+const arr = [...discovered]
+return [...infected].map(el=> el === '*' ? arr.shift() : el).join('')
+
 //Find Maximum and Minimum Values of a List
 
 //Your task is to make two functions ( max and min, or maximum and
