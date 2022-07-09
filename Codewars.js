@@ -13,6 +13,26 @@ var countSheep = function(num){
 return str
 }
 
+//Consider an array/list of sheep where some sheep may be missing from
+//their place. We need a function that counts the number of sheep present
+//in the array (true means present).
+
+//For example,
+
+//[true,  true,  true,  false,
+//  true,  true,  true,  true ,
+//  true,  false, true,  false,
+//  true,  false, false, true ,
+//  true,  true,  true,  true ,
+//  false, false, true,  true]
+
+//The correct answer would be 17.
+
+function countSheeps(arrayOfSheep) {
+  return arrayOfSheep.filter(Boolean).length
+}
+
+
 //Merge two sorted arrays into one
 
 function mergeArrays(arr1, arr2){
@@ -665,4 +685,38 @@ const dotCalculator = (equation) => {
 
 function choreAssignment(chores) {
   return chores.sort((a,b) => a-b).map((cur, idx) => cur + chores[chores.length-idx-1]).splice(chores.length/2, chores.length/2).sort((a,b) => a-b);
+}
+
+//A Needle in the Haystack
+
+//Can you find the needle in the haystack?
+
+//Write a function findNeedle() that takes an array full of junk but
+//containing one "needle"
+
+//After your function finds the needle it should return a message
+//(as a string) that says:
+
+//"found the needle at position " plus the index it found the needle, so:
+
+//Example(Input --> Output)
+
+//["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"] --> "found the needle at position 5"
+
+function findNeedle(haystack) {
+  let needle = 0;
+
+  for(let i = 0; i <= haystack.length; i++){
+      if(haystack[i] === 'needle'){
+          needle = haystack.indexOf('needle');
+      }
+
+  }
+ return `found the needle at position ${needle}`;
+}
+
+//reverse string
+
+function solution(str){
+  return str.split('').reverse().join('')
 }
