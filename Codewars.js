@@ -701,7 +701,8 @@ function choreAssignment(chores) {
 
 //Example(Input --> Output)
 
-//["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"] --> "found the needle at position 5"
+//["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"] -->
+//"found the needle at position 5"
 
 function findNeedle(haystack) {
   let needle = 0;
@@ -719,4 +720,10 @@ function findNeedle(haystack) {
 
 function solution(str){
   return str.split('').reverse().join('')
+}
+
+//Find Nearest square number
+
+function nearestSq(n){
+  return Math.pow(Math.round(Math.sqrt(n)), 2)
 }
