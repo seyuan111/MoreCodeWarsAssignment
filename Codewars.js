@@ -822,3 +822,56 @@ function XO(str) {
   
   return (string.filter(A).length === string.filter(B).length ? true : false)
 }
+
+//Quarter of the year
+
+//Given a month as an integer from 1 to 12, return to which quarter of the
+//year it belongs as an integer number.
+
+//For example: month 2 (February), is part of the first quarter;
+//month 6 (June), is part of the second quarter; and
+//month 11 (November), is part of the fourth quarter.
+
+const quarterOf = (month) => {
+  
+  if(month <= 3){
+    return 1
+  }else if(month > 3 && month <=6){
+    return 2
+  }else if(month > 6 && month <= 9){
+    return 3
+  }else if(month >= 10){
+    return 4
+  }
+  
+}
+
+//1st quarter is month 2(february)
+//2nd quarter: month 6(June)
+//4th quarter: month 11(November)
+//Find out which month belongs to which quarter
+//example: March would belong to 1st qtr.
+
+//Check same case
+
+//Write a function that will check if two given characters are the same case.
+
+//If either of the characters is not a letter, return -1
+//If both characters are the same case, return 1
+//If both characters are letters, but not the same case, return 0
+//Examples
+//'a' and 'g' returns 1
+//'A' and 'C' returns 1
+//'b' and 'G' returns 0
+//'B' and 'g' returns 0
+//'0' and '?' returns -1
+
+function sameCase(a, b){
+  if(a.toLowerCase() === a.toUpperCase() || b.toLowerCase() === b.toUpperCase()){
+    return -1
+  }else if(a === a.toLowerCase() && b === b.toLowerCase() || a === a.toUpperCase() && b === b.toUpperCase()){
+    return 1
+  }else{
+    return 0
+  }
+}
