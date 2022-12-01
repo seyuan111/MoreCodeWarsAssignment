@@ -875,3 +875,10 @@ function sameCase(a, b){
     return 0
   }
 }
+
+//How many arguments
+// Create a function called args_count that returns the number of arguments provided
+
+function args_count(...args){
+  return args.length
+}
