@@ -882,3 +882,116 @@ function sameCase(a, b){
 function args_count(...args){
   return args.length
 }
+
+//Find the first non-consecutive number
+
+//Your task is to find the first element of an array that is not consecutive.
+//By not consecutive we mean not exactly 1 larger than the previous element
+//of the array.
+
+//E.g. If we have an array [1,2,3,4,6,7,8] then 1 then 2 then 3 then 4 are
+//all consecutive but 6 is not, so that's the first non-consecutive number.
+
+//If the whole array is consecutive then return null2.
+
+//The array will always have at least 2 elements1 and all elements will be
+//numbers. The numbers will also all be unique and in ascending order.
+//The numbers could be positive or negative and the first non-consecutive
+//could be either too!
+
+function firstNonConsecutive (arr) {
+  for(let i = 0; i < arr.length - 1; i++){
+    const curr = arr[i];
+    const next = arr[i+1];
+    
+    if(curr + 1 !== next){
+      return next;
+    }
+  }
+  return null
+}
+
+//No oddities here
+
+//Write a small function that returns the values of an array that are
+//not odd.
+
+//All values in the array will be integers. Return the good values in the
+//order they are given.
+
+function noOdds( values ){
+  return values.filter(val => val % 2 ===0)
+}
+
+//Partial Keys
+
+//The Rub
+
+//You need to make a function that takes an object as an argument, and
+//returns a very similar object but with a special property. The returned
+//object should allow a user to access values by providing only the
+//beginning of the key for the value they want. For example if the given
+//object has a key idNumber, you should be able to access its value on the
+//returned object by using a key idNum or even simply id. Num and Number
+//shouldn't work because we are only looking for matches at the beginning
+//of a key.
+
+//Be aware that you could simply add all these partial keys one by one to
+//the object. However, for the sake of avoiding clutter, we don't want to
+//have a JSON with a bunch of nonsensical keys. Thus, in the random tests
+//there will be a test to check that you did not add or remove any keys
+//from the object passed in or the object returned.
+
+//Also, if a key is tested that appears as the beginning of more than one
+//key in the original object (e.g. if the original object had a key idNumber
+//and idString and we wanted to test the key id) then return the value
+//corresponding with whichever key comes first alphabetically.
+//(In this case it would be idNumbers value because it comes first
+//alphabetically.)
+
+//Example
+
+//let o = partialKeys({ abcd: 1 })
+
+//o.abcd === 1 // true
+//o.abc === 1 // true
+//o.ab === 1 // true
+//o.a === 1 // true
+
+function partialKeys(obj) {
+  return new Proxy(obj, {
+    get: (obj, prop) => {
+      const key = Object.keys(obj).sort().find(x => x.startsWith(prop));
+      return key ? obj[key] : undefined;
+    }
+  });
+}
+
+//The alphabet product
+
+//I have four positive integers, A, B, C and D, where A < B < C < D. The
+//input is a list of the integers A, B, C, D, AxB, BxC, CxD, DxA in some
+//order. Your task is to return the value of D.
+
+function alphabet(ns) {
+  const sorted = ns.sort((a,b) => a-b)
+  for(let i = 2; i<sorted.length;i++){
+    if(sorted[i] == sorted[0] * sorted[1]){
+      [sorted[i],sorted[4]] = [sorted[4],sorted[i]]
+    }
+  }
+    if(sorted[2] > sorted[3]){
+      [sorted[2],sorted[3]] = [sorted[3],sorted[2]]
+    }
+  for(let i = 3; i<sorted.length;i++){
+    if(sorted[i] == sorted[1] * sorted[2]){
+      [sorted[i],sorted[5]] = [sorted[5],sorted[i]]
+    }
+  }
+  for(let i = 4; i<sorted.length;i++){
+    if(sorted[i] == sorted[2] * sorted[3]){
+      [sorted[i],sorted[6]] = [sorted[6],sorted[i]]
+    }
+  }
+  return sorted[3]
+}
