@@ -1007,3 +1007,124 @@ function alphabet(ns) {
   }
   return sorted[3]
 }
+
+//2 Sum
+
+//Given an array of integers nums and an integer target, return indices
+//of the two numbers such that they add up to target.
+
+//You may assume that each input would have exactly one solution, and
+//you may not use the same element twice.
+
+//You can return the answer in any order. 
+
+//Example 1:
+
+//Input: nums = [2,7,11,15], target = 9
+//Output: [0,1]
+//Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+
+var twoSum = function(nums, target) {
+  const value = {}
+  for(let i = 0; i<=nums.length; i++){
+    let Current = nums[i];
+    const TargetValue = target - Current;
+    const secondIndex = value[TargetValue];
+    if(secondIndex != null){
+      return [secondIndex, i]
+    }else{
+      value[Current] = i
+    }
+  }
+};
+
+//371. Sum of Two Integers
+
+//Given two integers a and b, return the sum of the two integers without
+//using the operators + and -.
+
+//Example 1:
+
+//Input: a = 1, b = 2
+//Output: 3
+//Example 2:
+
+//Input: a = 2, b = 3
+//Output: 5
+
+var getSum = function(a, b) {
+  const mask = 0xFFFFFFFF; // 32-bit mask to get the last 32 bits
+  
+  while (b !== 0) {
+      // Calculate carry
+      const carry = (a & b) & mask;
+      
+      // Calculate sum without carry
+      a = (a ^ b) & mask;
+      
+      // Shift carry by one position
+      b = (carry << 1) & mask;
+  }
+
+  if (a > 0x7FFFFFFF) {
+      return ~(a ^ mask);
+  } else {
+      return a;
+  }
+};
+
+// Add Two Numbers
+
+//You are given two non-empty linked lists representing two non-negative
+//integers. The digits are stored in reverse order, and each of their
+//nodes contains a single digit. Add the two numbers and return the sum
+//as a linked list.
+
+//You may assume the two numbers do not contain any leading zero, except
+//the number 0 itself.
+
+//Example 1:
+
+// 2 -------> 4 -------> 3
+
+// 5 -------> 6 -------> 4
+
+// 7 -------> 0 -------> 8
+
+//Input: l1 = [2,4,3], l2 = [5,6,4]
+//Output: [7,0,8]
+//Explanation: 342 + 465 = 807.
+//Example 2:
+
+//Input: l1 = [0], l2 = [0]
+//Output: [0]
+//Example 3:
+
+//Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+//Output: [8,9,9,9,0,0,0,1]
+
+var addTwoNumbers = function(l1, l2) {
+  let sum = 0;
+  let current = new ListNode(0);
+  let result = current;
+  
+  while(l1 || l2){
+      if(l1){
+          sum += l1.val;
+          l1 = l1.next;
+      }
+      if(l2){
+          sum += l2.val;
+          l2 = l2.next;
+      }
+      current.next = new ListNode(sum % 10);
+      current = current.next;
+      
+      sum = sum > 9 ? 1 : 0
+  }
+  
+  if(sum){
+      current.next = new ListNode(sum)
+  }
+  return result.next;
+};
